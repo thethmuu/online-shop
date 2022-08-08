@@ -50,75 +50,61 @@
       <!-- shrits section -->
       <h1 class="text-center">Lastest Shirts</h1>
       <section class="row mt-4 gap-5">
-        <div class="card col me-3">
-          <img src="images/shirt-one.jpg" class="card-img-top" alt="..." />
+        <div class="shop-item card col me-3">
+          <img
+            src="images/shirt-one.jpg"
+            class="shop-item-image card-img-top"
+            alt="..."
+          />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-info"
-              ><i class="fa-solid fa-cart-plus"></i
-            ></a>
+            <h5 class="shop-item-title card-title">Mix</h5>
+            <p class="shop-item-price card-text">18000</p>
+            <button href="#" class="btn btn-info shop-item-button">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
           </div>
         </div>
-        <div class="card col me-3">
-          <img src="images/shirt-two.jpg" class="card-img-top" alt="..." />
+        <div class="shop-item card col me-3">
+          <img
+            class="shop-item-image"
+            src="images/shirt-two.jpg"
+            class="card-img-top"
+            alt="..."
+          />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-info"
-              ><i class="fa-solid fa-cart-plus"></i
-            ></a>
+            <h5 class="shop-item-title card-title">Next Gen</h5>
+            <p class="shop-item-price card-text">22000</p>
+            <button href="#" class="btn btn-info shop-item-button">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
           </div>
         </div>
-        <div class="card col">
-          <img src="images/shirt-three.jpg" class="card-img-top" alt="..." />
+        <div class="shop-item card col">
+          <img
+            src="images/shirt-three.jpg"
+            class="shop-item-image card-img-top"
+            alt="..."
+          />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-info"
-              ><i class="fa-solid fa-cart-plus"></i
-            ></a>
+            <h5 class="shop-item-title card-title">H & M</h5>
+            <p class="shop-item-price card-text">9500.50</p>
+            <button href="#" class="btn btn-info shop-item-button">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
           </div>
         </div>
       </section>
 
       <!-- your cart -->
-      <div class="cart-items mt-5">
-        <h1 class="text-center">My Cart</h1>
-        <div class="row mt-4">
-          <!-- cart item -->
-          <div
-            class="cart-row row justify-content-between align-items-center border py-3"
-          >
-            <div class="col-2">
-              <img
-                class="cart-img img-fluid"
-                src="images/shirt-one.jpg"
-                alt=""
-              />
-            </div>
-            <div class="col-8">
-              <p class="fs-2">The Original</p>
-              <p class="text-secondary fs-5">12,000</p>
-            </div>
-            <div class="col-1"><input class="w-100" type="number" /></div>
-          </div>
-          <hr class="mt-4" />
-          <!-- total row -->
-          <div class="row justify-content-end mt-4 fs-4">
-            <p class="col-8">Total</p>
-            <span class="col-1">200,000</span>
-          </div>
-        </div>
+      <h1 class="text-center">My Cart</h1>
+      <section class="cart-items mt-5">
+        <!-- cart item container -->
+      </section>
+      <hr class="mt-4" />
+      <!-- total row -->
+      <div class="row justify-content-end mt-4 fs-4">
+        <p class="col-8">Total</p>
+        <span class="cart-total-price col-1"></span>
       </div>
     </main>
   </body>
