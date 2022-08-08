@@ -5,9 +5,8 @@ if (document.readyState == 'loading') {
 }
 
 function initUI() {
-  // remove buttons
   // add to cart
-  const addToCartButtons = document.querySelectorAll('.shop-item-button');
+  var addToCartButtons = document.querySelectorAll('.shop-item-button');
   console.log(addToCartButtons);
   addToCartButtons.forEach((button) => {
     button.addEventListener('click', handleAddToCart);
@@ -43,39 +42,33 @@ function addItemToCartUI(title, price, img) {
                         </div>`;
   cartRow.innerHTML = cartRowContent;
   cartItems.appendChild(cartRow);
+  cartRow.querySelector('.cart-remove').addEventListener('click', removeItem);
+}
 
-  const removeItemButtons = document.querySelectorAll('.cart-remove');
-  console.log(removeItemButtons);
-  removeItemButtons.forEach((button) => {
-    button.addEventListener('click', removeItem);
+function removeItem(event) {
+  const removeConfirm = confirm('Are you sure to remove?');
+  if (removeConfirm) {
+    const btnClicked = event.target;
+
+    btnClicked.closest('.cart-row').remove();
+  }
+  updateCartTotal();
+}
+function updateCartTotal() {
+  const cartItemsContainer = document.querySelector('.cart-items');
+  const cartRows = cartItemsContainer.querySelectorAll('.cart-row');
+  let total = 0;
+  cartRows.forEach((row) => {
+    const priceEl = row.querySelector('.cart-price');
+    const quantityInput = row.querySelector('.cart-quantity-input');
+    const price = parseFloat(priceEl.textContent);
+    //   Number -> string -> number
+    //   parseFloat => string -> float
+    const quantity = quantityInput.value;
+
+    total = total + price * quantity;
   });
-
-  function removeItem(event) {
-    const removeConfirm = confirm('Are you sure to remove?');
-    if (removeConfirm) {
-      const btnClicked = event.target;
-
-      btnClicked.closest('.cart-row').remove();
-    }
-    updateCartTotal();
-  }
-
-  function updateCartTotal() {
-    const cartItemsContainer = document.querySelector('.cart-items');
-    const cartRows = cartItemsContainer.querySelectorAll('.cart-row');
-    let total = 0;
-    cartRows.forEach((row) => {
-      const priceEl = row.querySelector('.cart-price');
-      const quantityInput = row.querySelector('.cart-quantity-input');
-      const price = parseFloat(priceEl.textContent);
-      //   Number -> string -> number
-      //   parseFloat => string -> float
-      const quantity = quantityInput.value;
-
-      total = total + price * quantity;
-    });
-    document.querySelector('.cart-total-price').textContent = total.toFixed(2);
-  }
+  document.querySelector('.cart-total-price').textContent = total.toFixed(2);
 }
 
 {
