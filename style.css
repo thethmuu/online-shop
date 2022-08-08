@@ -1,5 +1,14 @@
+.shop-item {
+  overflow: hidden;
+  max-width: 18rem;
+}
 .card-img-top {
-  max-height: 28rem;
+  height: 20rem;
+  object-fit: cover;
+  transition: scale 300ms;
+}
+.card-img-top:hover {
+  scale: 1.01;
 }
 
 .cart-img {
