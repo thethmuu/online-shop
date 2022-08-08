@@ -1,0 +1,9 @@
+.card-img-top {
+  max-height: 26rem;
+}
+
+.cart-img {
+  width: 6rem;
+  max-height: 6rem;
+  object-fit: cover;
+}
