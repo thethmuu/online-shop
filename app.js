@@ -5,12 +5,47 @@ if (document.readyState == 'loading') {
 }
 
 function initUI() {
-  // add to cart
-  var addToCartButtons = document.querySelectorAll('.shop-item-button');
+  // show items to UI
+  showProductsToUI();
+}
 
-  addToCartButtons.forEach((button) => {
-    button.addEventListener('click', handleAddToCart);
-  });
+function showItemtoList(item) {
+  const lastestItemsContainer = document.querySelector('.latest-container');
+  const newUIItem = document.createElement('div');
+  newUIItem.classList = 'shop-item card col px-0 shadow-sm';
+  // newUIItem.classList.add('shop-item', 'card', 'col', 'px-0', 'shadow-sm');
+  newUIItem.innerHTML = `<img
+                src=${item.image}
+                class='shop-item-image card-img-top'
+                alt='...'
+              />
+              <div class='card-body'>
+                <h5 class='shop-item-title card-title fs-5'>${item.title}</h5>
+                <p class='shop-item-price card-text fs-6'>${item.price}</p>
+                <button class='btn btn-dark shop-item-button px-5'>
+                  <i class='fa-solid fa-cart-plus'></i>
+                </button>
+              </div>`;
+  lastestItemsContainer.appendChild(newUIItem);
+}
+
+function showProductsToUI() {
+  fetch('https://fakestoreapi.com/products?limit=3')
+    .then((res) => res.json())
+    .then((products) => {
+      // add item to UI
+      products.forEach((product) => {
+        showItemtoList(product);
+      });
+
+      // add to cart
+      var addToCartButtons = document.querySelectorAll('.shop-item-button');
+
+      addToCartButtons.forEach((button) => {
+        button.addEventListener('click', handleAddToCart);
+      });
+    })
+    .catch((error) => console.log(error));
 }
 
 function handleAddToCart(event) {
@@ -55,7 +90,9 @@ function addItemToCartUI(title, price, img) {
 
   cartRow.innerHTML = cartRowContent;
   cartItems.appendChild(cartRow);
-  alert('Item added to the cart!');
+  // show bootstrap toast
+  const toast = new bootstrap.Toast(document.querySelector('#notification'));
+  toast.show();
 
   // show cart
   const bsOffcanvas = new bootstrap.Offcanvas('#cart-sidebar');

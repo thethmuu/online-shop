@@ -88,53 +88,34 @@
     </div>
     <!-- cart sidebar end -->
 
+    <!-- toast -->
+    <div class="toast-container position-fixed top-0 start-0 p-3">
+      <div
+        id="notification"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Notification</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Item added to the cart</div>
+      </div>
+    </div>
+
     <main class="container my-5">
       <!-- shrits section -->
       <h1 class="text-center fs-4">Lastest Shirts</h1>
-      <section class="row justify-content-center mt-4 gap-5">
-        <div class="shop-item card col px-0 shadow-sm">
-          <img
-            src="images/shirt-one.jpg"
-            class="shop-item-image card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="shop-item-title card-title fs-5">Mix</h5>
-            <p class="shop-item-price card-text fs-6">18000</p>
-            <button class="btn btn-dark shop-item-button px-5">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-        <div class="shop-item card col px-0 shadow-sm">
-          <img
-            src="images/shirt-two.jpg"
-            class="shop-item-image card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="shop-item-title card-title">Next Gen</h5>
-            <p class="shop-item-price card-text">22000</p>
-            <button class="btn btn-dark shop-item-button px-5">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-        <div class="shop-item card col px-0 shadow-sm">
-          <img
-            src="images/shirt-three.jpg"
-            class="shop-item-image card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="shop-item-title card-title">H & M</h5>
-            <p class="shop-item-price card-text">9500.50</p>
-            <button class="btn btn-dark shop-item-button px-5">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </section>
+      <section
+        class="latest-container row justify-content-center mt-4 gap-5"
+      ></section>
     </main>
   </body>
 </html>
