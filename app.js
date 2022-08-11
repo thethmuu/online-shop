@@ -28,7 +28,8 @@ function addItemToCartUI(title, price, img) {
   cartRow.classList.add('cart-row');
   const cartItemNames = document.querySelectorAll('.cart-item-title');
   for (let i = 0; i < cartItemNames.length; i++) {
-    if (cartItemNames[i].innerText == title) {
+    if (cartItemNames[i].textContent == title) {
+      console.log('same');
       alert('Item already added');
       return;
     }
@@ -55,6 +56,10 @@ function addItemToCartUI(title, price, img) {
   cartRow.innerHTML = cartRowContent;
   cartItems.appendChild(cartRow);
   alert('Item added to the cart!');
+
+  // show cart
+  const bsOffcanvas = new bootstrap.Offcanvas('#cart-sidebar');
+  bsOffcanvas.show();
 
   cartRow.querySelector('.cart-remove').addEventListener('click', removeItem);
   cartRow
