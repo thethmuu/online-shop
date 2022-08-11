@@ -30,10 +30,18 @@ function showItemtoList(item) {
 }
 
 function showProductsToUI() {
+  // show spinner at initial
+  document.querySelector(
+    '.latest-container'
+  ).innerHTML = `<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>`;
+
   fetch('https://fakestoreapi.com/products?limit=3')
     .then((res) => res.json())
     .then((products) => {
       // add item to UI
+      document.querySelector('.spinner-border').remove();
       products.forEach((product) => {
         showItemtoList(product);
       });
