@@ -1,13 +1,13 @@
-// if (document.readyState == 'loading') {
-document.addEventListener('DOMContentLoaded', initUI);
-// } else {
-//   initUI();
-// }
+if (document.readyState == 'loading') {
+  document.addEventListener('DOMContentLoaded', initUI);
+} else {
+  initUI();
+}
 
 function initUI() {
   // add to cart
   var addToCartButtons = document.querySelectorAll('.shop-item-button');
-  console.log(addToCartButtons);
+
   addToCartButtons.forEach((button) => {
     button.addEventListener('click', handleAddToCart);
   });
@@ -35,7 +35,7 @@ function addItemToCartUI(title, price, img) {
     }
   }
 
-  const cartRowContent = `<div class='cart-item row justify-content-between             align-items-center border py-3 px-1 fs-6'>
+  const cartRowContent = `<div class='cart-item row justify-content-between align-items-center border py-3 px-1 fs-6'>
                             <div class='col-2'>
                                 <img class='cart-img img-fluid' src=${img} alt='' />
                             </div>
@@ -47,7 +47,7 @@ function addItemToCartUI(title, price, img) {
                                 <input class='cart-quantity-input' type='number' min='1' value='1' />
                             </div>
                             <div class="col-1 text-center">
-                                <button class="cart-remove btn btn-danger btn-sm text-center">
+                                <button class="cart-remove btn btn-danger btn-sm text-center rounded-full">
                                   <i class="fa-solid fa-trash fa-sm"></i>
                                 </button>
                             </div>
