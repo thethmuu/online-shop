@@ -40,15 +40,49 @@
           />
           <button class="btn btn-outline-info" type="submit">Search</button>
         </form>
-        <a class="btn btn-info text-white"
+        <a
+          class="btn btn-info text-white"
+          data-bs-toggle="offcanvas"
+          href="#cart-sidebar"
+          role="button"
+          aria-controls="cart-sidebar"
           ><i class="fa-solid fa-cart-shopping"></i
         ></a>
       </div>
     </nav>
 
+    <div
+      class="offcanvas offcanvas-end fs-6 px-3"
+      tabindex="-1"
+      id="cart-sidebar"
+      aria-labelledby="cartSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title fs-5" id="cartSidebarLabel">Your Cart</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- my cart -->
+        <section class="cart-items mt-4">
+          <!-- cart item container -->
+        </section>
+        <hr class="mt-4" />
+        <!-- total row -->
+        <div class="row justify-content-end text-end mt-4">
+          <p class="col">Total</p>
+          <span class="col cart-total-price"></span>
+        </div>
+      </div>
+    </div>
+
     <main class="container my-5">
       <!-- shrits section -->
-      <h1 class="text-center">Lastest Shirts</h1>
+      <h1 class="text-center fs-4">Lastest Shirts</h1>
       <section class="row justify-content-center mt-4 gap-5">
         <div class="shop-item card col px-0 shadow-sm">
           <img
@@ -57,8 +91,8 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="shop-item-title card-title">Mix</h5>
-            <p class="shop-item-price card-text">18000</p>
+            <h5 class="shop-item-title card-title fs-5">Mix</h5>
+            <p class="shop-item-price card-text fs-6">18000</p>
             <button class="btn btn-info text-white shop-item-button">
               <i class="fa-solid fa-cart-plus"></i>
             </button>
@@ -93,18 +127,6 @@
           </div>
         </div>
       </section>
-
-      <!-- your cart -->
-      <h1 class="text-center mt-5">My Cart</h1>
-      <section class="cart-items mt-4">
-        <!-- cart item container -->
-      </section>
-      <hr class="mt-4" />
-      <!-- total row -->
-      <div class="row justify-content-end mt-4 fs-4">
-        <p class="col-8">Total</p>
-        <span class="cart-total-price col-1"></span>
-      </div>
     </main>
   </body>
 </html>

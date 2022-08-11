@@ -34,24 +34,28 @@ function addItemToCartUI(title, price, img) {
     }
   }
 
-  const cartRowContent = `<div class='cart-item row justify-content-between             align-items-center border py-3'>
+  const cartRowContent = `<div class='cart-item row justify-content-between             align-items-center border py-3 px-1 fs-6'>
                             <div class='col-2'>
                                 <img class='cart-img img-fluid' src=${img} alt='' />
                             </div>
-                            <div class='col-8'>
-                                <p class='cart-item-title fs-2'>${title}</p>
-                                <p class='cart-price text-secondary fs-5'>${price}</p>
+                            <div class='col-6'>
+                                <p class='cart-item-title pb-0'>${title}</p>
+                                <p class='cart-price text-secondary pb-0'>${price}</p>
                             </div>
-                            <div class='col-1'>
-                                <input class='cart-quantity-input w-100' type='number' min='1' value='1' />
+                            <div class='col-2'>
+                                <input class='cart-quantity-input' type='number' min='1' value='1' />
                             </div>
-                            <div class="col-1">
-                                <button class="cart-remove btn btn-danger">Remove</button>
+                            <div class="col-1 text-center">
+                                <button class="cart-remove btn btn-danger btn-sm text-center">
+                                  <i class="fa-solid fa-trash fa-sm"></i>
+                                </button>
                             </div>
                         </div>`;
 
   cartRow.innerHTML = cartRowContent;
   cartItems.appendChild(cartRow);
+  alert('Item added to the cart!');
+
   cartRow.querySelector('.cart-remove').addEventListener('click', removeItem);
   cartRow
     .querySelector('.cart-quantity-input')

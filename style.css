@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
 .shop-item {
   overflow: hidden;
   max-width: 18rem;
+}
+#cart-sidebar {
+  width: 45rem;
 }
 .card-img-top {
   height: 20rem;
@@ -10,9 +18,14 @@
 .card-img-top:hover {
   scale: 1.01;
 }
-
 .cart-img {
   width: 6rem;
   max-height: 6rem;
   object-fit: cover;
+}
+.cart-quantity-input {
+  padding: 0.2em 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
 }
