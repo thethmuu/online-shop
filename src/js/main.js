@@ -1,3 +1,9 @@
+// Import our custom CSS
+import '../scss/styles.scss';
+
+// Import all of Bootstrap's JS
+import * as bootstrap from 'bootstrap';
+
 if (document.readyState == 'loading') {
   document.addEventListener('DOMContentLoaded', initUI);
 } else {
@@ -9,6 +15,35 @@ function initUI() {
   showProductsToUI();
 }
 
+// form
+const form = document.querySelector('.checkout-form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = Object.fromEntries(new FormData(form).entries());
+  // save to localStorage
+  localStorage.setItem('shop.customer', JSON.stringify(formData));
+
+  const customerName = JSON.parse(localStorage.getItem('shop.customer')).name;
+
+  const checkoutBtn = document.querySelector('.checkout-btn');
+  checkoutBtn.textContent = 'Saving...';
+
+  setTimeout(() => {
+    const checkoutContainer = document.querySelector('.checkout-container');
+    checkoutContainer.innerHTML = `
+        <div class="complete-state text-center border rounded px-4 py-3">
+          <i class="bi bi-check-circle-fill fs-1"></i>
+          <h2 class="mt-3">Thank you , ${customerName}!</h2>
+          <p class="mt-3">
+            We've saved your order details! Will contact you soon.
+          </p>
+          <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-dark">Continue</button>
+          </div>
+        </div>`;
+  }, 2000);
+});
+
 function showItemtoList(item) {
   const lastestItemsContainer = document.querySelector('.latest-container');
   const newUIItem = document.createElement('div');
@@ -19,12 +54,14 @@ function showItemtoList(item) {
                 class='shop-item-image card-img-top'
                 alt='...'
               />
-              <div class='card-body'>
-                <h5 class='shop-item-title card-title fs-5'>${item.title}</h5>
+              <div class='card-body d-flex flex-column'>
+                <h5 class='shop-item-title card-title fs-6'>${item.title}</h5>
                 <p class='shop-item-price card-text fs-6'>${item.price}</p>
-                <button class='btn btn-dark shop-item-button px-5'>
-                  <i class='fa-solid fa-cart-plus'></i>
-                </button>
+                <div class="text-center mt-auto">
+                  <button class='btn btn-dark shop-item-button px-3'>
+                    Add to cart <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
               </div>`;
   lastestItemsContainer.appendChild(newUIItem);
 }
@@ -91,7 +128,7 @@ function addItemToCartUI(title, price, img) {
                             </div>
                             <div class="col-1 text-center">
                                 <button class="cart-remove btn btn-danger btn-sm text-center rounded-full">
-                                  <i class="fa-solid fa-trash fa-sm"></i>
+                                  <i class="bi bi-trash3"></i>
                                 </button>
                             </div>
                         </div>`;
