@@ -1,6 +1,7 @@
 const path = require('path');
 
 export default {
+  base: '/online-store/',
   root: path.resolve(__dirname, 'src'),
   resolve: {
     alias: {
